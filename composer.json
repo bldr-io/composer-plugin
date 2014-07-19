@@ -1,0 +1,19 @@
+{
+    "name": "bldr-io/composer-plugin",
+    "type": "composer-plugin",
+    "require": {
+        "composer-plugin-api": "1.0.0",
+        "symfony/yaml":        "~2.5.0"
+    },
+    "require-dev": {
+        "composer/composer": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bldr\\Composer\\BldrPlugin\\": "src/"
+        }
+    },
+    "extra": {
+        "class": "Bldr\\Composer\\BldrPlugin\\BldrPlugin"
+    }
+}
