@@ -145,7 +145,13 @@ class BldrPlugin implements PluginInterface, EventSubscriberInterface
 
         $config = $this->composer->getConfig();
 
-        return $this->blockLoader = $config->has('block-loader') ? $config->get('block-loader') : '.bldr/blocks.yml';
+        $this->blockLoader = $config->has('block-loader') ? $config->get('block-loader') : '.bldr/blocks.yml';
+
+        if (!file_exists($this->blockLoader)) {
+            touch($this->blockLoader);
+        }
+
+        return $this->blockLoader;
     }
 
     /**
