@@ -166,6 +166,16 @@ class BldrPlugin implements PluginInterface, EventSubscriberInterface
         return isset($extra['block-class']) ? $extra['block-class'] : null;
     }
 
+    private function getLoaderContents()
+    {
+        $loader = Yaml::parse(file_get_contents($this->getBlockLoader()));
+        if (null === $loader) {
+            $loader = [];
+        }
+
+        return $loader;
+    }
+
     /**
      * @param PackageInterface $package
      *
@@ -178,7 +188,7 @@ class BldrPlugin implements PluginInterface, EventSubscriberInterface
             return false;
         }
 
-        $loader = Yaml::parse(file_get_contents($this->getBlockLoader()));
+        $loader = $this->getLoaderContents();
 
         if (in_array($class, $loader)) {
             return false;
@@ -201,7 +211,7 @@ class BldrPlugin implements PluginInterface, EventSubscriberInterface
             return false;
         }
 
-        $loader = Yaml::parse(file_get_contents($this->getBlockLoader()));
+        $loader = $this->getLoaderContents();
 
         if (!in_array($class, $loader)) {
             return false;
