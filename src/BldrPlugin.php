@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE
  */
 
-namespace Bldr;
+namespace Bldr\Composer\BldrPlugin;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
