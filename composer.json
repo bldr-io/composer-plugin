@@ -3,8 +3,8 @@
     "type": "composer-plugin",
     "license": "MIT",
     "require": {
-        "composer-plugin-api": "1.0.0",
-        "symfony/yaml":        "~2.5.0"
+        "composer-plugin-api": "1.0",
+        "symfony/yaml":        "~2.5"
     },
     "require-dev": {
         "composer/composer": "dev-master"
